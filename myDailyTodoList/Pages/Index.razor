@@ -1,8 +1,26 @@
 ﻿@page "/"
+@*@inject IJSRuntime _js;*@
+@using ChartJs.Blazor.PieChart
+
+@using System.Globalization;
 @using myDailyTodoList.Models;
 
 <input @bind="newTask" type="Enter a Todo">
-<button @onclick="addTask">Save</button>
+
+@*<EditForm JobModel="jobModel">*@
+<InputSelect @bind-Value="jbm.Priority">
+    @foreach (var item in Enum.GetValues(typeof(JobPriority)))
+    {
+        <option value="@item">@item</option>
+    }
+</InputSelect>
+@*</EditForm>*@
+ 
+
+<button @onclick="addTask" class="btn btn-success">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;
+<button @onclick="pointendDay" class="btn btn-warning">Monitoring</button>
+
+
 
 <hr />
 <JobsContainer Jobs="Jobs" OnStatusUpdated="HandleStatusUpdated">
@@ -19,9 +37,13 @@
     <p>@task.Description - <strong>@task.Status</strong></p>
 }
 
+<Chart Config="pieConfig"></Chart>
+
 @code{
+    JobModel jbm = new JobModel();
     List<JobModel> Jobs = new List<JobModel>();
     string lastUpdatedJob = "";
+    private PieConfig pieConfig;
 
     protected override void OnInitialized()
     {
@@ -30,40 +52,114 @@
                 Id = 1,
                 Description = "Creating Database",
                 Status = JobStatuses.Todo,
-                LastUpdated = DateTime.Now
+                LastUpdated = DateTime.Now,
+                Priority=JobPriority.NotUrgentAndImportant
             });
 
-        Jobs.Add(new JobModel
-            {
-                Id = 2,
-                Description = "Desing UI",
-                Status = JobStatuses.Todo,
-                LastUpdated = DateTime.Now
-            });
+        #region atelier
+        //Jobs.Add(new JobModel
+        //    {
+        //        Id = 2,
+        //        Description = "Desing UI",
+        //        Status = JobStatuses.Todo,
+        //        LastUpdated = DateTime.Now
+        //    });
 
-        Jobs.Add(new JobModel
-            {
-                Id = 3,
-                Description = "DAta binding",
-                Status = JobStatuses.Todo,
-                LastUpdated = DateTime.Now
-            });
-        Jobs.Add(new JobModel
-            {
-                Id = 4,
-                Description = "Fix All Error",
-                Status = JobStatuses.Todo,
-                LastUpdated = DateTime.Now
-            });
+        //Jobs.Add(new JobModel
+        //    {
+        //        Id = 3,
+        //        Description = "DAta binding",
+        //        Status = JobStatuses.Todo,
+        //        LastUpdated = DateTime.Now
+        //    });
+        //Jobs.Add(new JobModel
+        //    {
+        //        Id = 4,
+        //        Description = "Fix All Error",
+        //        Status = JobStatuses.Todo,
+        //        LastUpdated = DateTime.Now
+        //    });
 
-        Jobs.Add(new JobModel
+        //Jobs.Add(new JobModel
+        //    {
+        //        Id = 5,
+        //        Description = "Support Prod",
+        //        Status = JobStatuses.Todo,
+        //        LastUpdated = DateTime.Now
+        //    });
+
+        //-Chart
+        pieConfig = new PieConfig();
+        pieConfig.Options = new PieOptions
             {
-                Id = 5,
-                Description = "Support Prod",
-                Status = JobStatuses.Todo,
-                LastUpdated = DateTime.Now
-            });
+                Responsive = true,
+                Title = new OptionsTitle
+                {
+                    Display = true,
+                    Text = "Montoring of Task"
+
+                }
+            };
+
+
+        //foreach (var item in new[] { "Party 1", "Party 2", "Party 3" })
+        //{
+        //pieConfig.Data.Labels.Add(item);
+        //}
+
+        //var mydatset = new PieDataset<int>(new[] { 30, 50, 15 })
+        //        {
+        //        BackgroundColor = new[]
+        //        {
+        //        ColorUtil.ColorHexString(255,0,0),
+        //        ColorUtil.ColorHexString(0,255,0),
+        //        ColorUtil.ColorHexString(0,0,255)
+        //    }
+        //};
+
+        //pieConfig.Data.Datasets.Add(mydatset);
+
+
+        //-dynamic
+        foreach (var item in Enum.GetNames(typeof(JobPriority)))
+        {
+            pieConfig.Data.Labels.Add(item);
+        }
+        //foreach (var item in new[] { "Party 1", "Party 2", "Party 3", "Party 4" })
+        //{
+        //    pieConfig.Data.Labels.Add(item);
+        //}
+        double d1 = 0.5 * 100;
+        double d2 = 0.8 * 100;
+        double d3 = 0.33 * 100;
+        double d4 = 0.66 * 100;
+        //string output = d.ToString("F2", CultureInfo.InvariantCulture) + "%";
+
+        //var mydatset = new PieDataset<string>(new[] { d1.ToString("F2", CultureInfo.InvariantCulture) + "%",
+        //                                              d2.ToString("F2", CultureInfo.InvariantCulture) + "%",
+        //                                              d3.ToString("F2", CultureInfo.InvariantCulture) + "%",
+        //                                              d4.ToString("F2", CultureInfo.InvariantCulture) + "%"});
+
+        var mydatset = new PieDataset<double>(new[] { d1,
+                                                      d2,
+                                                      d3,
+                                                      d4})
+            {
+                BackgroundColor = new[]
+                    {
+                ColorUtil.ColorHexString(203,67,53), //red -U&I
+                ColorUtil.ColorHexString(22,160,133), //green -I&NotU
+                ColorUtil.ColorHexString(46,134,193), //blue -NI&U
+                ColorUtil.ColorHexString(195,155,211),//mauve -Ni&NU
+            }
+            };
+
+        pieConfig.Data.Datasets.Add(mydatset);
+
+        #endregion
     }
+
+
     void HandleStatusUpdated(JobModel updatedJob)
     {
         lastUpdatedJob = updatedJob.Description;
@@ -81,10 +177,134 @@
 
         if(!string.IsNullOrWhiteSpace(newTask))
         {
+
             int valID = getLastId() + 1;
-            JobModel jobModel = new JobModel { Description = newTask, Status = JobStatuses.Todo, Id = valID,LastUpdated=DateTime.Now };
+            JobModel jobModel = new JobModel { Description = newTask, Status = JobStatuses.Todo, Id = valID,LastUpdated=DateTime.Now
+                                                  ,
+                    Priority = jbm.Priority
+                };
             Jobs.Add(jobModel);
+            newTask = string.Empty;
         }
-       
+
     }
+
+    void pointendDay()
+    {
+        List<JobModel> lstTasks_UrgentAndImportant=new List<JobModel>();
+        List<JobModel> lstTasks_NotUrgentAndImportant = new List<JobModel>(); ;
+        List<JobModel> lstTasks_UrgentAndNotImportant = new List<JobModel>(); ;
+        List<JobModel> lstTasks_NotUrgentAndNotImportant = new List<JobModel>(); 
+
+        foreach (var item in Jobs)
+        {
+            switch(item.Priority)
+            {
+                case JobPriority.UrgentAndImportant : lstTasks_UrgentAndImportant.Add(item);
+                    break;
+                case JobPriority.NotUrgentAndImportant:
+                    lstTasks_NotUrgentAndImportant.Add(item);
+                    break;
+                case JobPriority.UrgentAndNotImportant:
+                    lstTasks_UrgentAndNotImportant.Add(item);
+                    break;
+                case JobPriority.NotUrgentAndNotImportant:
+                    lstTasks_NotUrgentAndNotImportant.Add(item);
+                    break;
+            }
+        }
+
+        //---for chart
+        double percentDone_UrgentAndImportant; double percentDone_UandI;
+        double percentDone_NotUrgentAndImportant; double percentDone_NUandI;
+        double percentDone_UrgentAndNotImportant; double percentDone_UandNI;
+        double percentDone_NotUrgentAndNotImportant; double percentDone_NUandNI;
+
+        #region calcul value for Chart
+        int totalDone_UrgentAndImportant = lstTasks_UrgentAndImportant.Count(c => c.Status.Equals(JobStatuses.Completed) && c.Priority.Equals(JobPriority.UrgentAndImportant));
+        // int totalUnDone_UrgentAndImportant = lstTasks_UrgentAndImportant.Count(c => c.Status.Equals(JobStatuses.Todo) && c.Priority.Equals(JobPriority.UrgentAndImportant));
+        int totalUnDone_UrgentAndImportant = lstTasks_UrgentAndImportant.Count(c=>c.Priority.Equals(JobPriority.UrgentAndImportant));
+        if (totalUnDone_UrgentAndImportant > 0)
+        {
+        percentDone_UrgentAndImportant = double.Parse(totalDone_UrgentAndImportant.ToString()) / double.Parse(totalUnDone_UrgentAndImportant.ToString());
+        percentDone_UandI = Math.Round(percentDone_UrgentAndImportant, 2);
+        }
+        else
+            percentDone_UandI = 0;
+
+        int totalDone_NotUrgentAndImportant = lstTasks_NotUrgentAndImportant.Count(c => c.Status.Equals(JobStatuses.Completed) && c.Priority.Equals(JobPriority.NotUrgentAndImportant)); 
+        int totalUnDone_NotUrgentAndImportant = lstTasks_NotUrgentAndImportant.Count(c => c.Priority.Equals(JobPriority.UrgentAndImportant));
+        if (totalUnDone_NotUrgentAndImportant > 0)
+        {
+            percentDone_NotUrgentAndImportant = double.Parse(totalDone_NotUrgentAndImportant.ToString()) / double.Parse(totalUnDone_NotUrgentAndImportant.ToString());
+            percentDone_NUandI = Math.Round(percentDone_NotUrgentAndImportant, 2);
+        }
+        else
+            percentDone_NUandI = 0;
+
+
+        int totalDone_UrgentAndNotImportant = lstTasks_NotUrgentAndImportant.Count(c => c.Status.Equals(JobStatuses.Completed) && c.Priority.Equals(JobPriority.UrgentAndNotImportant));
+        int totalUnDone_UrgentAndNotImportant = lstTasks_NotUrgentAndImportant.Count(c => c.Priority.Equals(JobPriority.UrgentAndNotImportant));
+        if (totalUnDone_UrgentAndNotImportant > 0)
+        {
+            percentDone_UrgentAndNotImportant = double.Parse(totalDone_UrgentAndNotImportant.ToString()) / double.Parse(totalUnDone_UrgentAndNotImportant.ToString());
+            percentDone_UandNI = Math.Round(percentDone_UrgentAndNotImportant, 2);
+        }
+        else
+            percentDone_UandNI = 0;
+
+        int totalDone_NotUrgentAndNotImportant = lstTasks_NotUrgentAndImportant.Count(c => c.Status.Equals(JobStatuses.Completed) && c.Priority.Equals(JobPriority.NotUrgentAndNotImportant));
+        int totalUnDone_NotUrgentAndNotImportant = lstTasks_NotUrgentAndImportant.Count(c => c.Priority.Equals(JobPriority.UrgentAndNotImportant));
+        if (totalUnDone_NotUrgentAndNotImportant > 0)
+        {
+            percentDone_NotUrgentAndNotImportant = double.Parse(totalDone_NotUrgentAndNotImportant.ToString()) / double.Parse(totalUnDone_NotUrgentAndNotImportant.ToString());
+            percentDone_NUandNI = Math.Round(percentDone_NotUrgentAndNotImportant, 2);
+        }
+        else
+            percentDone_NUandNI = 0;
+#endregion
+
+            //----Display Graph
+            #region Grapth
+        pieConfig = new PieConfig();
+        pieConfig.Options = new PieOptions
+            {
+                Responsive = true,
+                Title = new OptionsTitle
+                {
+                    Display = true,
+                    Text = "Montoring of Task"
+
+                }
+            };
+
+        foreach (var item in Enum.GetNames(typeof(JobPriority)))
+        {
+            pieConfig.Data.Labels.Add(item);
+        }
+
+        //double d1 = 0.5 * 100;
+        var mydatset = new PieDataset<double>(new[] { percentDone_UandI*100,
+                                                      percentDone_NUandI*100,
+                                                      percentDone_UandNI*100,
+                                                      percentDone_NUandNI*100})
+            {
+                BackgroundColor = new[]
+                    {
+                ColorUtil.ColorHexString(203,67,53), //red -U&I
+                ColorUtil.ColorHexString(22,160,133), //green -I&NotU
+                ColorUtil.ColorHexString(46,134,193), //blue -NI&U
+                ColorUtil.ColorHexString(195,155,211),//mauve -Ni&NU
+            }
+            };
+
+        pieConfig.Data.Datasets.Add(mydatset);
+        #endregion
+    }
+
+
+
+ 
+  
 }
+@*https://www.youtube.com/watch?v=h3yaUuI2KZc*@

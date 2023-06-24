@@ -6,7 +6,9 @@
         public JobStatuses Status { get; set; }
         public string Description { get; set; }
         public DateTime LastUpdated { get; set; }
-     
+        
+        public JobPriority Priority { get; set; }
+
     }
 
     public enum JobStatuses
@@ -15,6 +17,14 @@
         Started,
         Progress,
         Completed
+    }
+
+    public enum JobPriority
+    {
+        UrgentAndImportant,
+        NotUrgentAndImportant,
+        UrgentAndNotImportant,
+        NotUrgentAndNotImportant
     }
 }
 

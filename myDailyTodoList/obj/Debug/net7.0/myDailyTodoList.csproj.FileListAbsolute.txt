@@ -1,11 +1,3 @@
-C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\obj\Debug\net7.0\myDailyTodoList.csproj.AssemblyReference.cache
-C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\obj\Debug\net7.0\myDailyTodoList.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\obj\Debug\net7.0\myDailyTodoList.AssemblyInfoInputs.cache
-C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\obj\Debug\net7.0\myDailyTodoList.AssemblyInfo.cs
-C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\obj\Debug\net7.0\myDailyTodoList.csproj.CoreCompileInputs.cache
-C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\obj\Debug\net7.0\myDailyTodoList.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\obj\Debug\net7.0\myDailyTodoList.RazorAssemblyInfo.cache
-C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\obj\Debug\net7.0\myDailyTodoList.RazorAssemblyInfo.cs
 C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\bin\Debug\net7.0\appsettings.json
 C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\bin\Debug\net7.0\myDailyTodoList.staticwebassets.runtime.json
@@ -14,6 +6,16 @@ C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\bin\Debug\net
 C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\bin\Debug\net7.0\myDailyTodoList.runtimeconfig.json
 C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\bin\Debug\net7.0\myDailyTodoList.dll
 C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\bin\Debug\net7.0\myDailyTodoList.pdb
+C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\bin\Debug\net7.0\ChartJs.Blazor.dll
+C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\obj\Debug\net7.0\myDailyTodoList.csproj.AssemblyReference.cache
+C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\obj\Debug\net7.0\myDailyTodoList.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\obj\Debug\net7.0\myDailyTodoList.AssemblyInfoInputs.cache
+C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\obj\Debug\net7.0\myDailyTodoList.AssemblyInfo.cs
+C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\obj\Debug\net7.0\myDailyTodoList.csproj.CoreCompileInputs.cache
+C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\obj\Debug\net7.0\myDailyTodoList.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\obj\Debug\net7.0\myDailyTodoList.RazorAssemblyInfo.cache
+C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\obj\Debug\net7.0\myDailyTodoList.RazorAssemblyInfo.cs
 C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\obj\Debug\net7.0\staticwebassets\msbuild.myDailyTodoList.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\obj\Debug\net7.0\staticwebassets\msbuild.build.myDailyTodoList.props
 C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.myDailyTodoList.props
@@ -25,6 +27,7 @@ C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\obj\Debug\net
 C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\obj\Debug\net7.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
 C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\obj\Debug\net7.0\scopedcss\bundle\myDailyTodoList.styles.css
 C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\obj\Debug\net7.0\scopedcss\projectbundle\myDailyTodoList.bundle.scp.css
+C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\obj\Debug\net7.0\myDailyTodoList.csproj.CopyComplete
 C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\obj\Debug\net7.0\myDailyTodoList.dll
 C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\obj\Debug\net7.0\refint\myDailyTodoList.dll
 C:\Users\Rman Diamand\source\repos\myDailyTodoList\myDailyTodoList\obj\Debug\net7.0\myDailyTodoList.pdb

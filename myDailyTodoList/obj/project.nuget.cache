@@ -1,8 +1,24 @@
 {
   "version": 2,
-  "dgSpecHash": "YhDe9pHMJ4DVx3CJ/pN0BUydvMcKfY8j+NHJYJHFq0vTZ9dZl9qeeZh/mmvAXiLU/6c22NPAEaDCssfza+Sr+A==",
+  "dgSpecHash": "0sYaMBwCbE9EgZs1snIwNcr/7lNfBUjiSBuHAfmzsUAKnI8BnEfOIvCPiR02+7Cq76N9qbU3eRbePZVupQYk3A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Rman Diamand\\source\\repos\\myDailyTodoList\\myDailyTodoList\\myDailyTodoList.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Rman Diamand\\.nuget\\packages\\chartjs.blazor.fork\\2.0.2\\chartjs.blazor.fork.2.0.2.nupkg.sha512",
+    "C:\\Users\\Rman Diamand\\.nuget\\packages\\microsoft.aspnetcore.authorization\\3.1.8\\microsoft.aspnetcore.authorization.3.1.8.nupkg.sha512",
+    "C:\\Users\\Rman Diamand\\.nuget\\packages\\microsoft.aspnetcore.components\\3.1.8\\microsoft.aspnetcore.components.3.1.8.nupkg.sha512",
+    "C:\\Users\\Rman Diamand\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\3.1.8\\microsoft.aspnetcore.components.analyzers.3.1.8.nupkg.sha512",
+    "C:\\Users\\Rman Diamand\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\3.1.8\\microsoft.aspnetcore.components.forms.3.1.8.nupkg.sha512",
+    "C:\\Users\\Rman Diamand\\.nuget\\packages\\microsoft.aspnetcore.components.web\\3.1.8\\microsoft.aspnetcore.components.web.3.1.8.nupkg.sha512",
+    "C:\\Users\\Rman Diamand\\.nuget\\packages\\microsoft.aspnetcore.metadata\\3.1.8\\microsoft.aspnetcore.metadata.3.1.8.nupkg.sha512",
+    "C:\\Users\\Rman Diamand\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\Rman Diamand\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\3.1.8\\microsoft.extensions.dependencyinjection.3.1.8.nupkg.sha512",
+    "C:\\Users\\Rman Diamand\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.8\\microsoft.extensions.dependencyinjection.abstractions.3.1.8.nupkg.sha512",
+    "C:\\Users\\Rman Diamand\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.8\\microsoft.extensions.logging.abstractions.3.1.8.nupkg.sha512",
+    "C:\\Users\\Rman Diamand\\.nuget\\packages\\microsoft.extensions.options\\3.1.8\\microsoft.extensions.options.3.1.8.nupkg.sha512",
+    "C:\\Users\\Rman Diamand\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.8\\microsoft.extensions.primitives.3.1.8.nupkg.sha512",
+    "C:\\Users\\Rman Diamand\\.nuget\\packages\\microsoft.jsinterop\\3.1.8\\microsoft.jsinterop.3.1.8.nupkg.sha512",
+    "C:\\Users\\Rman Diamand\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

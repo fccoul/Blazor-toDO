@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\Rman Diamand\\.nuget\\packages\\chartjs.blazor.fork\\2.0.2\\contentFiles\\any\\netstandard2.1\\wwwroot\\ChartJsBlazorInterop.js",
+      "PackagePath": "staticwebassets\\ChartJsBlazorInterop.js"
+    },
+    {
       "Id": "C:\\Users\\Rman Diamand\\source\\repos\\myDailyTodoList\\myDailyTodoList\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\myDailyTodoList.bundle.scp.css",
       "PackagePath": "staticwebassets\\myDailyTodoList.bundle.scp.css"
     },

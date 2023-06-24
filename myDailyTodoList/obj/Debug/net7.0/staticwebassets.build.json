@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "I5tK6q8GUeTDpppEBeQ6sjb5Jxu/507ThdU1buzGrkc=",
+  "Hash": "OIhSFFL7kSjMQm3LOOkmZ/K8UruA8e4BrURNXXbfp0c=",
   "Source": "myDailyTodoList",
   "BasePath": "_content/myDailyTodoList",
   "Mode": "Default",
@@ -16,6 +16,40 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\Rman Diamand\\.nuget\\packages\\chartjs.blazor.fork\\2.0.2\\contentFiles\\any\\netstandard2.1\\wwwroot\\ChartJsBlazorInterop.js",
+      "SourceId": "myDailyTodoList",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Rman Diamand\\source\\repos\\myDailyTodoList\\myDailyTodoList\\wwwroot\\",
+      "BasePath": "_content/myDailyTodoList",
+      "RelativePath": "ChartJsBlazorInterop.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Rman Diamand\\.nuget\\packages\\chartjs.blazor.fork\\2.0.2\\contentFiles\\any\\netstandard2.1\\wwwroot\\ChartJsBlazorInterop.js"
+    },
+    {
+      "Identity": "C:\\Users\\Rman Diamand\\.nuget\\packages\\chartjs.blazor.fork\\2.0.2\\staticwebassets\\ChartJsBlazorInterop.js",
+      "SourceId": "ChartJs.Blazor.Fork",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Rman Diamand\\.nuget\\packages\\chartjs.blazor.fork\\2.0.2\\staticwebassets\\",
+      "BasePath": "_content/ChartJs.Blazor.Fork",
+      "RelativePath": "ChartJsBlazorInterop.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Rman Diamand\\.nuget\\packages\\chartjs.blazor.fork\\2.0.2\\staticwebassets\\ChartJsBlazorInterop.js"
+    },
     {
       "Identity": "C:\\Users\\Rman Diamand\\source\\repos\\myDailyTodoList\\myDailyTodoList\\obj\\Debug\\net7.0\\scopedcss\\bundle\\myDailyTodoList.styles.css",
       "SourceId": "myDailyTodoList",
