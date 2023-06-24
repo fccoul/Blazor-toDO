@@ -1,6 +1,10 @@
 ﻿@page "/"
 @using myDailyTodoList.Models;
 
+<input @bind="newTask" type="Enter a Todo">
+<button @onclick="addTask">Save</button>
+
+<hr />
 <JobsContainer Jobs="Jobs" OnStatusUpdated="HandleStatusUpdated">
     <JobList ListStatus="JobStatuses.Todo" AllowedStatuses="@(new JobStatuses[] {JobStatuses.Started,JobStatuses.Progress})" />
     <JobList ListStatus="JobStatuses.Started" AllowedStatuses="@(new JobStatuses[] {JobStatuses.Todo})" />
@@ -63,5 +67,24 @@
     void HandleStatusUpdated(JobModel updatedJob)
     {
         lastUpdatedJob = updatedJob.Description;
+    }
+
+    string newTask{ get; set; }
+
+    int getLastId()
+    {
+        return Jobs.Max(m => m.Id);
+    }
+
+    void addTask()
+    {
+
+        if(!string.IsNullOrWhiteSpace(newTask))
+        {
+            int valID = getLastId() + 1;
+            JobModel jobModel = new JobModel { Description = newTask, Status = JobStatuses.Todo, Id = valID,LastUpdated=DateTime.Now };
+            Jobs.Add(jobModel);
+        }
+       
     }
 }
