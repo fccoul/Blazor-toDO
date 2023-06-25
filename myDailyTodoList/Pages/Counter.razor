@@ -19,12 +19,19 @@
 }*@
 
 <div>
-    <InputSelect id="week" @bind-Value="selectWeek">
+@*    <InputSelect id="week" @bind-Value="selectWeek">
         @foreach (var sem in lstWeek)
     {
             <option value="@sem.Code">@sem.Libelle</option>
     }
-</InputSelect>
+</InputSelect>*@
+
+    <button @onclick="Display1" class="btn btn-success">semaine 1</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    <button @onclick="Display2" class="btn btn-success">semaine 2</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    <button @onclick="Display3" class="btn btn-success">semaine 3</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    <NavLink class="nav-link" href="/Counter" @onclick="HandleClick">
+        <span class="oi oi-file" aria-hidden="true"></span> raf
+    </NavLink>
 </div>
 
  
@@ -35,6 +42,12 @@
 }
 
 @code{
+    @inject NavigationManager NavigationManager;
+    private void HandleClick()
+    {
+        NavigationManager.NavigateTo("Counter", true);
+    }
+
     string selectWeek { get; set; }
     public class Week
     {
@@ -44,10 +57,12 @@
 
     List<Week> lstWeek = new List<Week>
     {
-      new Week{Code="S1",Libelle= "Week of 05th to 09th Jun" },
+      //new Week{Code="S1",Libelle= "Week of 05th to 09th Jun" },
       new Week{Code="S2",Libelle="Week of 12th to 16th Jun" },
       new Week{Code="S3",Libelle="Week of 19th to 20th Jun" }
     };
+
+
 
     JobModel jbm = new JobModel();
     List<JobModel> Jobs = new List<JobModel>();
@@ -56,12 +71,13 @@
 
     protected override void OnInitialized()
     {
-        Display();
-        pointendDay("week 1 : 5th Jun - 9th Jun");
+        //Display();
+        //pointendDay("week 2 : 12th Jun - 16th Jun");
     }
 
-    void Display()
+    void Display1()
     {
+        Jobs.Clear();
         string targetDirectory = @"C:\Users\Rman Diamand\Documents\Ateliers\Blazor\test";
         string[] fileEntries = Directory.GetFiles(targetDirectory);
         string fileTaskJ = string.Empty;
@@ -75,6 +91,7 @@
                 break;
             }
 
+
         }
         // String FileName = @"C:\Users\Rman Diamand\source\repos\myDailyTodoList\LogTasks\TaskDaily_" + DateTime.Now.ToShortDateString() + ".json";
 
@@ -84,6 +101,66 @@
             //List<JobModel> items = Newtonsoft.Json.JsonConvert.DeserializeObject<List<JobModel>>(jsonFile);
             Jobs = Newtonsoft.Json.JsonConvert.DeserializeObject<List<JobModel>>(jsonFile);
         }
+
+        pointendDay("Week of 05th to 09th Jun");
+    }
+    void Display2()
+    {
+        Jobs.Clear();
+        string targetDirectory = @"C:\Users\Rman Diamand\Documents\Ateliers\Blazor\test";
+        string[] fileEntries = Directory.GetFiles(targetDirectory);
+        string fileTaskJ = string.Empty;
+        foreach (string fileName in fileEntries)
+        {
+            string[] dateFilename = fileName.Split("_");
+            string weekJ = "week2";
+            if (dateFilename[1].StartsWith(weekJ))
+            {
+                fileTaskJ = fileName;
+                break;
+            }
+
+
+        }
+        // String FileName = @"C:\Users\Rman Diamand\source\repos\myDailyTodoList\LogTasks\TaskDaily_" + DateTime.Now.ToShortDateString() + ".json";
+
+        using (StreamReader r = new StreamReader(fileTaskJ))
+        {
+            string jsonFile = r.ReadToEnd();
+            //List<JobModel> items = Newtonsoft.Json.JsonConvert.DeserializeObject<List<JobModel>>(jsonFile);
+            Jobs = Newtonsoft.Json.JsonConvert.DeserializeObject<List<JobModel>>(jsonFile);
+        }
+
+        pointendDay("week 2 : 12th Jun - 16th Jun");
+    }
+    void Display3()
+    {
+        Jobs.Clear();
+        string targetDirectory = @"C:\Users\Rman Diamand\Documents\Ateliers\Blazor\test";
+        string[] fileEntries = Directory.GetFiles(targetDirectory);
+        string fileTaskJ = string.Empty;
+        foreach (string fileName in fileEntries)
+        {
+            string[] dateFilename = fileName.Split("_");
+            string weekJ = "week3";
+            if (dateFilename[1].StartsWith(weekJ))
+            {
+                fileTaskJ = fileName;
+                break;
+            }
+
+
+        }
+        // String FileName = @"C:\Users\Rman Diamand\source\repos\myDailyTodoList\LogTasks\TaskDaily_" + DateTime.Now.ToShortDateString() + ".json";
+
+        using (StreamReader r = new StreamReader(fileTaskJ))
+        {
+            string jsonFile = r.ReadToEnd();
+            //List<JobModel> items = Newtonsoft.Json.JsonConvert.DeserializeObject<List<JobModel>>(jsonFile);
+            Jobs = Newtonsoft.Json.JsonConvert.DeserializeObject<List<JobModel>>(jsonFile);
+        }
+
+        pointendDay("Week of 19th to 20th Jun");
     }
 
 void pointendDay(string period)
