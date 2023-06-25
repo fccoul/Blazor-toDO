@@ -1,8 +1,9 @@
 ﻿@page "/counter"
-
+@using myDailyTodoList.Models;
+@using ChartJs.Blazor.PieChart
 <PageTitle>Counter</PageTitle>
 
-<h1>Counter</h1>
+@*<h1>Counter</h1>
 
 <p role="status">Current count: @currentCount</p>
 
@@ -14,5 +15,196 @@
     private void IncrementCount()
     {
         currentCount++;
+    }
+}*@
+
+<div>
+    <InputSelect id="week" @bind-Value="selectWeek">
+        @foreach (var sem in lstWeek)
+    {
+            <option value="@sem.Code">@sem.Libelle</option>
+    }
+</InputSelect>
+</div>
+
+ 
+
+@if (pieConfigWeek != null)
+{
+    <Chart Config="pieConfigWeek"></Chart>
+}
+
+@code{
+    string selectWeek { get; set; }
+    public class Week
+    {
+        public string Code { get; set; }
+        public string Libelle { get; set; }
+    }
+
+    List<Week> lstWeek = new List<Week>
+    {
+      new Week{Code="S1",Libelle= "Week of 05th to 09th Jun" },
+      new Week{Code="S2",Libelle="Week of 12th to 16th Jun" },
+      new Week{Code="S3",Libelle="Week of 19th to 20th Jun" }
+    };
+
+    JobModel jbm = new JobModel();
+    List<JobModel> Jobs = new List<JobModel>();
+    string lastUpdatedJob = "";
+    private PieConfig pieConfigWeek;
+
+    protected override void OnInitialized()
+    {
+        Display();
+        pointendDay("week 1 : 5th Jun - 9th Jun");
+    }
+
+    void Display()
+    {
+        string targetDirectory = @"C:\Users\Rman Diamand\Documents\Ateliers\Blazor\test";
+        string[] fileEntries = Directory.GetFiles(targetDirectory);
+        string fileTaskJ = string.Empty;
+        foreach (string fileName in fileEntries)
+        {
+            string[] dateFilename = fileName.Split("_");
+            string weekJ = "week1";
+            if (dateFilename[1].StartsWith(weekJ))
+            {
+                fileTaskJ = fileName;
+                break;
+            }
+
+        }
+        // String FileName = @"C:\Users\Rman Diamand\source\repos\myDailyTodoList\LogTasks\TaskDaily_" + DateTime.Now.ToShortDateString() + ".json";
+
+        using (StreamReader r = new StreamReader(fileTaskJ))
+        {
+            string jsonFile = r.ReadToEnd();
+            //List<JobModel> items = Newtonsoft.Json.JsonConvert.DeserializeObject<List<JobModel>>(jsonFile);
+            Jobs = Newtonsoft.Json.JsonConvert.DeserializeObject<List<JobModel>>(jsonFile);
+        }
+    }
+
+void pointendDay(string period)
+    {
+        List<JobModel> lstTasks_UrgentAndImportant=new List<JobModel>();
+        List<JobModel> lstTasks_NotUrgentAndImportant = new List<JobModel>(); ;
+        List<JobModel> lstTasks_UrgentAndNotImportant = new List<JobModel>(); ;
+        List<JobModel> lstTasks_NotUrgentAndNotImportant = new List<JobModel>(); 
+
+        foreach (var item in Jobs)
+        {
+            switch(item.Priority)
+            {
+                case JobPriority.UrgentAndImportant : lstTasks_UrgentAndImportant.Add(item);
+                    break;
+                case JobPriority.NotUrgentAndImportant:
+                    lstTasks_NotUrgentAndImportant.Add(item);
+                    break;
+                case JobPriority.UrgentAndNotImportant:
+                    lstTasks_UrgentAndNotImportant.Add(item);
+                    break;
+                case JobPriority.NotUrgentAndNotImportant:
+                    lstTasks_NotUrgentAndNotImportant.Add(item);
+                    break;
+            }
+        }
+
+        //---for chart
+        double percentDone_UrgentAndImportant; double percentDone_UandI;
+        double percentDone_NotUrgentAndImportant; double percentDone_NUandI;
+        double percentDone_UrgentAndNotImportant; double percentDone_UandNI;
+        double percentDone_NotUrgentAndNotImportant; double percentDone_NUandNI;
+
+        #region calcul value for Chart
+
+         #region Urgent et  important : cadre 1
+        int totalDone_UrgentAndImportant = lstTasks_UrgentAndImportant.Count(c => c.Status.Equals(JobStatuses.Completed) && c.Priority.Equals(JobPriority.UrgentAndImportant));
+        // int totalUnDone_UrgentAndImportant = lstTasks_UrgentAndImportant.Count(c => c.Status.Equals(JobStatuses.Todo) && c.Priority.Equals(JobPriority.UrgentAndImportant));
+        int totalUnDone_UrgentAndImportant = lstTasks_UrgentAndImportant.Count(c=>c.Priority.Equals(JobPriority.UrgentAndImportant));
+        if (totalUnDone_UrgentAndImportant > 0)
+        {
+        percentDone_UrgentAndImportant = double.Parse(totalDone_UrgentAndImportant.ToString()) / double.Parse(totalUnDone_UrgentAndImportant.ToString());
+        percentDone_UandI = Math.Round(percentDone_UrgentAndImportant, 2);
+        }
+        else
+            percentDone_UandI = 0;
+         #endregion
+
+        #region pas Urgent mais important : cadre 2
+        int totalDone_NotUrgentAndImportant = lstTasks_NotUrgentAndImportant.Count(c => c.Status.Equals(JobStatuses.Completed) && c.Priority.Equals(JobPriority.NotUrgentAndImportant)); 
+        int totalUnDone_NotUrgentAndImportant = lstTasks_NotUrgentAndImportant.Count(c => c.Priority.Equals(JobPriority.NotUrgentAndImportant));
+        if (totalUnDone_NotUrgentAndImportant > 0)
+        {
+            percentDone_NotUrgentAndImportant = double.Parse(totalDone_NotUrgentAndImportant.ToString()) / double.Parse(totalUnDone_NotUrgentAndImportant.ToString());
+            percentDone_NUandI = Math.Round(percentDone_NotUrgentAndImportant, 2);
+        }
+        else
+            percentDone_NUandI = 0;
+            #endregion
+
+        #region Urgent mais pas important : cadre 3
+        int totalDone_UrgentAndNotImportant = lstTasks_UrgentAndNotImportant.Count(c => c.Status.Equals(JobStatuses.Completed) && c.Priority.Equals(JobPriority.UrgentAndNotImportant));
+        int totalUnDone_UrgentAndNotImportant = lstTasks_UrgentAndNotImportant.Count(c => c.Priority.Equals(JobPriority.UrgentAndNotImportant));
+        if (totalUnDone_UrgentAndNotImportant > 0)
+        {
+            percentDone_UrgentAndNotImportant = double.Parse(totalDone_UrgentAndNotImportant.ToString()) / double.Parse(totalUnDone_UrgentAndNotImportant.ToString());
+            percentDone_UandNI = Math.Round(percentDone_UrgentAndNotImportant, 2);
+        }
+        else
+            percentDone_UandNI = 0;
+#endregion
+
+        #region pas Urgent et pas important : cadre 4
+        int totalDone_NotUrgentAndNotImportant = lstTasks_NotUrgentAndNotImportant.Count(c => c.Status.Equals(JobStatuses.Completed) && c.Priority.Equals(JobPriority.NotUrgentAndNotImportant));
+        int totalUnDone_NotUrgentAndNotImportant = lstTasks_NotUrgentAndNotImportant.Count(c => c.Priority.Equals(JobPriority.NotUrgentAndNotImportant));
+        if (totalUnDone_NotUrgentAndNotImportant > 0)
+        {
+            percentDone_NotUrgentAndNotImportant = double.Parse(totalDone_NotUrgentAndNotImportant.ToString()) / double.Parse(totalUnDone_NotUrgentAndNotImportant.ToString());
+            percentDone_NUandNI = Math.Round(percentDone_NotUrgentAndNotImportant, 2);
+        }
+        else
+            percentDone_NUandNI = 0;
+            #endregion
+
+#endregion
+
+            //----Display Graph
+            #region Grapth
+        pieConfigWeek = new PieConfig();
+        pieConfigWeek.Options = new PieOptions
+            {
+                Responsive = true,
+                Title = new OptionsTitle
+                {
+                    Display = true,
+                    Text = "Montoring of Tasks of week :" +period
+
+                }
+            };
+
+        foreach (var item in Enum.GetNames(typeof(JobPriority)))
+        {
+            pieConfigWeek.Data.Labels.Add(item);
+        }
+
+        //double d1 = 0.5 * 100;
+        var mydatset = new PieDataset<double>(new[] { percentDone_UandI*100,
+                                                      percentDone_NUandI*100,
+                                                      percentDone_UandNI*100,
+                                                      percentDone_NUandNI*100})
+            {
+                BackgroundColor = new[]
+                    {
+                ColorUtil.ColorHexString(203,67,53), //red -U&I
+                ColorUtil.ColorHexString(22,160,133), //green -I&NotU
+                ColorUtil.ColorHexString(46,134,193), //blue -NI&U
+                ColorUtil.ColorHexString(195,155,211),//mauve -Ni&NU
+            }
+            };
+
+        pieConfigWeek.Data.Datasets.Add(mydatset);
+        #endregion
     }
 }
