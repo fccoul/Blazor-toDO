@@ -271,6 +271,8 @@
         double percentDone_NotUrgentAndNotImportant; double percentDone_NUandNI;
 
         #region calcul value for Chart
+
+         #region Urgent et  important : cadre 1
         int totalDone_UrgentAndImportant = lstTasks_UrgentAndImportant.Count(c => c.Status.Equals(JobStatuses.Completed) && c.Priority.Equals(JobPriority.UrgentAndImportant));
         // int totalUnDone_UrgentAndImportant = lstTasks_UrgentAndImportant.Count(c => c.Status.Equals(JobStatuses.Todo) && c.Priority.Equals(JobPriority.UrgentAndImportant));
         int totalUnDone_UrgentAndImportant = lstTasks_UrgentAndImportant.Count(c=>c.Priority.Equals(JobPriority.UrgentAndImportant));
@@ -281,7 +283,9 @@
         }
         else
             percentDone_UandI = 0;
+         #endregion
 
+        #region pas Urgent mais important : cadre 2
         int totalDone_NotUrgentAndImportant = lstTasks_NotUrgentAndImportant.Count(c => c.Status.Equals(JobStatuses.Completed) && c.Priority.Equals(JobPriority.NotUrgentAndImportant)); 
         int totalUnDone_NotUrgentAndImportant = lstTasks_NotUrgentAndImportant.Count(c => c.Priority.Equals(JobPriority.NotUrgentAndImportant));
         if (totalUnDone_NotUrgentAndImportant > 0)
@@ -291,10 +295,11 @@
         }
         else
             percentDone_NUandI = 0;
+            #endregion
 
-
-        int totalDone_UrgentAndNotImportant = lstTasks_NotUrgentAndImportant.Count(c => c.Status.Equals(JobStatuses.Completed) && c.Priority.Equals(JobPriority.UrgentAndNotImportant));
-        int totalUnDone_UrgentAndNotImportant = lstTasks_NotUrgentAndImportant.Count(c => c.Priority.Equals(JobPriority.UrgentAndNotImportant));
+        #region Urgent mais pas important : cadre 3
+        int totalDone_UrgentAndNotImportant = lstTasks_UrgentAndNotImportant.Count(c => c.Status.Equals(JobStatuses.Completed) && c.Priority.Equals(JobPriority.UrgentAndNotImportant));
+        int totalUnDone_UrgentAndNotImportant = lstTasks_UrgentAndNotImportant.Count(c => c.Priority.Equals(JobPriority.UrgentAndNotImportant));
         if (totalUnDone_UrgentAndNotImportant > 0)
         {
             percentDone_UrgentAndNotImportant = double.Parse(totalDone_UrgentAndNotImportant.ToString()) / double.Parse(totalUnDone_UrgentAndNotImportant.ToString());
@@ -302,7 +307,9 @@
         }
         else
             percentDone_UandNI = 0;
+#endregion
 
+        #region pas Urgent et pas important : cadre 4
         int totalDone_NotUrgentAndNotImportant = lstTasks_NotUrgentAndNotImportant.Count(c => c.Status.Equals(JobStatuses.Completed) && c.Priority.Equals(JobPriority.NotUrgentAndNotImportant));
         int totalUnDone_NotUrgentAndNotImportant = lstTasks_NotUrgentAndNotImportant.Count(c => c.Priority.Equals(JobPriority.NotUrgentAndNotImportant));
         if (totalUnDone_NotUrgentAndNotImportant > 0)
@@ -312,6 +319,8 @@
         }
         else
             percentDone_NUandNI = 0;
+            #endregion
+
 #endregion
 
             //----Display Graph
