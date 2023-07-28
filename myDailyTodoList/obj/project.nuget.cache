@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0sYaMBwCbE9EgZs1snIwNcr/7lNfBUjiSBuHAfmzsUAKnI8BnEfOIvCPiR02+7Cq76N9qbU3eRbePZVupQYk3A==",
+  "dgSpecHash": "QJLyygDZ2nn2DYuBoeRVehKxYvjVASKlYmlCh05L1Fd0fFF8DwscqOGnSZ/boLqvL6de5eorb6zhGsKKkEXHug==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Rman Diamand\\source\\repos\\myDailyTodoList\\myDailyTodoList\\myDailyTodoList.csproj",
+  "projectFilePath": "C:\\Users\\Rman Diamand\\source\\repos\\myDailyTodoList\\Blazor-toDO\\myDailyTodoList\\myDailyTodoList.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Rman Diamand\\.nuget\\packages\\chartjs.blazor.fork\\2.0.2\\chartjs.blazor.fork.2.0.2.nupkg.sha512",
     "C:\\Users\\Rman Diamand\\.nuget\\packages\\microsoft.aspnetcore.authorization\\3.1.8\\microsoft.aspnetcore.authorization.3.1.8.nupkg.sha512",

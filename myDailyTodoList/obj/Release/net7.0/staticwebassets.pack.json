@@ -1,0 +1,81 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Rman Diamand\\.nuget\\packages\\chartjs.blazor.fork\\2.0.2\\contentFiles\\any\\netstandard2.1\\wwwroot\\ChartJsBlazorInterop.js",
+      "PackagePath": "staticwebassets\\ChartJsBlazorInterop.js"
+    },
+    {
+      "Id": "C:\\Users\\Rman Diamand\\source\\repos\\myDailyTodoList\\Blazor-toDO\\myDailyTodoList\\obj\\Release\\net7.0\\scopedcss\\projectbundle\\myDailyTodoList.bundle.scp.css",
+      "PackagePath": "staticwebassets\\myDailyTodoList.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\Rman Diamand\\source\\repos\\myDailyTodoList\\Blazor-toDO\\myDailyTodoList\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Rman Diamand\\source\\repos\\myDailyTodoList\\Blazor-toDO\\myDailyTodoList\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Rman Diamand\\source\\repos\\myDailyTodoList\\Blazor-toDO\\myDailyTodoList\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "C:\\Users\\Rman Diamand\\source\\repos\\myDailyTodoList\\Blazor-toDO\\myDailyTodoList\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "C:\\Users\\Rman Diamand\\source\\repos\\myDailyTodoList\\Blazor-toDO\\myDailyTodoList\\wwwroot\\css\\open-iconic\\README.md",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\README.md"
+    },
+    {
+      "Id": "C:\\Users\\Rman Diamand\\source\\repos\\myDailyTodoList\\Blazor-toDO\\myDailyTodoList\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Rman Diamand\\source\\repos\\myDailyTodoList\\Blazor-toDO\\myDailyTodoList\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
+    },
+    {
+      "Id": "C:\\Users\\Rman Diamand\\source\\repos\\myDailyTodoList\\Blazor-toDO\\myDailyTodoList\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
+    },
+    {
+      "Id": "C:\\Users\\Rman Diamand\\source\\repos\\myDailyTodoList\\Blazor-toDO\\myDailyTodoList\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
+    },
+    {
+      "Id": "C:\\Users\\Rman Diamand\\source\\repos\\myDailyTodoList\\Blazor-toDO\\myDailyTodoList\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Rman Diamand\\source\\repos\\myDailyTodoList\\Blazor-toDO\\myDailyTodoList\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
+    },
+    {
+      "Id": "C:\\Users\\Rman Diamand\\source\\repos\\myDailyTodoList\\Blazor-toDO\\myDailyTodoList\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\Rman Diamand\\source\\repos\\myDailyTodoList\\Blazor-toDO\\myDailyTodoList\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.build.myDailyTodoList.props",
+      "PackagePath": "build\\myDailyTodoList.props"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.myDailyTodoList.props",
+      "PackagePath": "buildMultiTargeting\\myDailyTodoList.props"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.buildTransitive.myDailyTodoList.props",
+      "PackagePath": "buildTransitive\\myDailyTodoList.props"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.myDailyTodoList.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

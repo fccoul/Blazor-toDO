@@ -1,0 +1,9 @@
+C:\Users\Rman Diamand\source\repos\myDailyTodoList\Blazor-toDO\myDailyTodoList\obj\Release\net7.0\PubTmp\Out\myDailyTodoList.exe
+C:\Users\Rman Diamand\source\repos\myDailyTodoList\Blazor-toDO\myDailyTodoList\obj\Release\net7.0\PubTmp\Out\appsettings.Development.json
+C:\Users\Rman Diamand\source\repos\myDailyTodoList\Blazor-toDO\myDailyTodoList\obj\Release\net7.0\PubTmp\Out\appsettings.json
+C:\Users\Rman Diamand\source\repos\myDailyTodoList\Blazor-toDO\myDailyTodoList\obj\Release\net7.0\PubTmp\Out\myDailyTodoList.dll
+C:\Users\Rman Diamand\source\repos\myDailyTodoList\Blazor-toDO\myDailyTodoList\obj\Release\net7.0\PubTmp\Out\myDailyTodoList.deps.json
+C:\Users\Rman Diamand\source\repos\myDailyTodoList\Blazor-toDO\myDailyTodoList\obj\Release\net7.0\PubTmp\Out\myDailyTodoList.runtimeconfig.json
+C:\Users\Rman Diamand\source\repos\myDailyTodoList\Blazor-toDO\myDailyTodoList\obj\Release\net7.0\PubTmp\Out\myDailyTodoList.pdb
+C:\Users\Rman Diamand\source\repos\myDailyTodoList\Blazor-toDO\myDailyTodoList\obj\Release\net7.0\PubTmp\Out\ChartJs.Blazor.dll
+C:\Users\Rman Diamand\source\repos\myDailyTodoList\Blazor-toDO\myDailyTodoList\obj\Release\net7.0\PubTmp\Out\Newtonsoft.Json.dll
